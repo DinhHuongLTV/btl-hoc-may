@@ -78,6 +78,17 @@ class customDataset(Dataset):
   def __getitem__(self, item):
 
   def __len__(self):
+     
+output_size = 30
+BATCH_SIZE = 64
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+input_size = 4
+hidden_size = 128
+num_layers = 1
+lr = 0.003
+weight_decay = 1e-4
+path = '/content/UntitledFolder/test.pt'
+epochs = 50
 
 # function
 def process(data)
