@@ -7,8 +7,6 @@ import matplotlib.pyplot as plt
 import torch.optim as optim
 import re
 #..
-pip install ucimlrepo
-#..
 from ucimlrepo import fetch_ucirepo
 
 # fetch dataset
@@ -23,9 +21,6 @@ y = air_quality.data.targets
 
 # variable information
 # print(air_quality.variables)
-
-#..
-%mkdir UntitledFolder
 
 #..
 df = air_quality.data.features
@@ -71,14 +66,16 @@ axes[2].legend()
 df1 = df[group_1]
 df1
 # TODO: Implementation of dataset and dataloader class
-# class
 class customDataset(Dataset):
   def __init__(self, data):
+    self.data = data
 
   def __getitem__(self, item):
+    return self.data[item]
 
   def __len__(self):
-     
+    return len(self.data)
+  
 output_size = 30
 BATCH_SIZE = 64
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
